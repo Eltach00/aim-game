@@ -1,3 +1,12 @@
+const colors = [
+  '#FFFFFF',
+  '#2196F3',
+  '#4CAF50',
+  '#FF9800',
+  '#009688',
+  '#795548',
+]
+
 const startBtn = document.getElementById('start')
 const screens = document.querySelectorAll('.screen')
 const timeList = document.getElementById('time-list')
@@ -68,9 +77,16 @@ function createRandomCircle() {
   circle.style.height = `${size}px`
   circle.style.top = `${x}px`
   circle.style.left = `${y}px`
+  const color = getRandomColor(colors)
+  circle.style.background = color
   board.append(circle)
 }
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min)
+}
+
+function getRandomColor(colors) {
+  const index = Math.floor(Math.random() * colors.length)
+  return colors[index]
 }
